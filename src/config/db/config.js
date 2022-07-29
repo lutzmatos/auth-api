@@ -6,6 +6,10 @@ const POSTGRES_AUTH_HOST = env.POSTGRES_AUTH_HOST
     ? env.POSTGRES_AUTH_HOST
     : "auth-db";
 
+const POSTGRES_AUTH_PORT = env.POSTGRES_AUTH_PORT
+    ? env.POSTGRES_AUTH_PORT
+    : 40101;
+
 const POSTGRES_AUTH_USER = env.POSTGRES_AUTH_USER
     ? env.POSTGRES_AUTH_USER
     : "postgres";
@@ -24,9 +28,8 @@ const sequelize = new Sequelize(
     POSTGRES_AUTH_PASSWORD,
     {
         host: POSTGRES_AUTH_HOST,
-        // host: 'localhost',
         dialect: 'postgres',
-        port: 40101,
+        port: POSTGRES_AUTH_PORT,
         quoteIdentifiers: false,
         define: 
         {
