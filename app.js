@@ -3,7 +3,7 @@ import express from "express";
 import tracing from './src/config/tracing/index.js';
 import userRoutes from './src/modules/user/routes/UserRoutes.js';
 
-import createInicialData from './src/config/db/initial.js';
+import { createInicialData } from './src/config/db/initial.js';
 createInicialData();
 
 const app = express();
