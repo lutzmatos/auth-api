@@ -1,11 +1,29 @@
 import Sequelize from 'sequelize';
 
+const env = process.env;
+
+const POSTGRES_AUTH_HOST = env.POSTGRES_AUTH_HOST
+    ? env.POSTGRES_AUTH_HOST
+    : "auth-db";
+
+const POSTGRES_AUTH_USER = env.POSTGRES_AUTH_USER
+    ? env.POSTGRES_AUTH_USER
+    : "postgres";
+
+const POSTGRES_AUTH_PASSWORD = env.POSTGRES_AUTH_PASSWORD
+    ? env.POSTGRES_AUTH_PASSWORD
+    : "postgres";
+
+const POSTGRES_AUTH_DB = env.POSTGRES_AUTH_DB
+    ? env.POSTGRES_AUTH_DB
+    : "postgres";
+
 const sequelize = new Sequelize(
-    "auth-db", 
-    "postgres", 
-    "postgres",
+    POSTGRES_AUTH_DB, 
+    POSTGRES_AUTH_USER, 
+    POSTGRES_AUTH_PASSWORD,
     {
-        host: 'auth-db',
+        host: POSTGRES_AUTH_HOST,
         // host: 'localhost',
         dialect: 'postgres',
         port: 40101,
