@@ -28,9 +28,17 @@ const sequelize = new Sequelize(
     POSTGRES_AUTH_PASSWORD,
     {
         host: POSTGRES_AUTH_HOST,
-        dialect: 'postgres',
         port: POSTGRES_AUTH_PORT,
+        dialect: 'postgres',
         quoteIdentifiers: false,
+        dialectOptions: 
+        {
+            ssl:
+            {
+                require: true,
+                rejectUnauthorized: false
+            }
+        },
         define: 
         {
             syncOnAssociation: true,
